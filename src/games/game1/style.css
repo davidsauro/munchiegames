@@ -1,0 +1,11 @@
+#g1-grid { display: grid; grid-template-columns: repeat(6, 58px); gap: 3px; background: var(--c-gap, #a0aec0); border: 3px solid var(--c-gap, #a0aec0); border-radius: 10px; overflow: hidden; }
+.g1-cell { width: 58px; height: 58px; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 600; background: var(--c-cell-bg, #f7fafc); color: var(--c-cell-text, #1a202c); transition: background 0.1s; }
+.g1-cell.eaten { background: var(--c-cell-bg, #e2e8f0); color: var(--c-gap, #a0aec0); font-size: 13px; text-decoration: line-through; opacity: 0.5; }
+.g1-cell.munchie { background: var(--c-frog-bg, #48bb78); font-size: 26px; box-shadow: inset 0 0 0 2px var(--c-frog-border, #276749); }
+#g1-prompt-box { background: var(--c-prompt-bg); border: 1.5px solid var(--c-prompt-border); border-radius: 10px; padding: 12px 16px; max-width: 200px; }
+#g1-prompt-label { font-size: 10px; color: var(--c-prompt-text); letter-spacing: .5px; text-transform: uppercase; margin-bottom: 6px; opacity: .75; }
+#g1-prompt-text { font-size: 17px; font-weight: 600; color: var(--c-prompt-text); line-height: 1.5; }
+#g1-cur-val-box { background: var(--c-prompt-bg); border: 1.5px solid var(--c-prompt-border); border-radius: 10px; padding: 8px 14px; text-align: center; min-width: 110px; }
+#g1-cur-val-label { font-size: 11px; color: var(--c-prompt-text); opacity: .75; margin-bottom: 3px; }
+#g1-cur-val { font-size: 26px; font-weight: 700; color: var(--c-prompt-text); }
+#g1-screen { display: none; flex-direction: column; gap: 0; }
