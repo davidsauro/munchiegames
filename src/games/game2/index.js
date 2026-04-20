@@ -27,9 +27,15 @@ function buildHTML() {
       <div id="g2-answer-value">—</div>
     </div>
     <div id="g2-arena">
-      <div class="g2-eq-cell gap-right" id="g2-left"></div>
+      <div class="g2-eq-cell gap-right" id="g2-left">
+        <span class="g2-frog-icon">🐸</span>
+        <span class="g2-eq-text"></span>
+      </div>
       <div class="g2-frog-cell" id="g2-frog">🐸</div>
-      <div class="g2-eq-cell gap-left" id="g2-right"></div>
+      <div class="g2-eq-cell gap-left" id="g2-right">
+        <span class="g2-frog-icon">🐸</span>
+        <span class="g2-eq-text"></span>
+      </div>
     </div>
     <div style="font-size:12px;color:var(--color-text-secondary);">← → move &nbsp;|&nbsp; Space eat</div>
     <div id="g2-scores">
@@ -79,13 +85,17 @@ function initGame() {
 
 function renderArena() {
   document.getElementById('g2-answer-value').textContent = G.round.answer;
-  document.getElementById('g2-left').textContent = G.round.left.text;
-  document.getElementById('g2-right').textContent = G.round.right.text;
-  const frogEl = document.getElementById('g2-frog');
-  frogEl.textContent = '🐸';
-  // highlight which cell munchie is adjacent to
-  document.getElementById('g2-left').classList.toggle('munchie-adjacent', G.pos === 'left');
-  document.getElementById('g2-right').classList.toggle('munchie-adjacent', G.pos === 'right');
+
+  const leftCell = document.getElementById('g2-left');
+  const rightCell = document.getElementById('g2-right');
+  const frogCell = document.getElementById('g2-frog');
+
+  leftCell.querySelector('.g2-eq-text').textContent = G.round.left.text;
+  rightCell.querySelector('.g2-eq-text').textContent = G.round.right.text;
+
+  leftCell.classList.toggle('munchie-here', G.pos === 'left');
+  rightCell.classList.toggle('munchie-here', G.pos === 'right');
+  frogCell.classList.toggle('hidden', G.pos !== 'center');
 }
 
 function move(dir) {

@@ -25,7 +25,7 @@ const GAMES = [
   },
 ];
 
-const GRADE_LABELS = { K: 'K', 1: '1', 2: '2', 3: '3' };
+const GRADES = ['K', '1', '2', '3'];
 const GRADE_CLASSES = { K: 'gk', 1: 'g1', 2: 'g2', 3: 'g3' };
 
 let onSelect = null;
@@ -56,10 +56,10 @@ function buildHTML() {
         </div>
       </div>
       <div class="gs-grade-row">
-        ${Object.keys(GRADE_LABELS).map(g => `
+        ${GRADES.map(g => `
           <button class="gs-grade-btn grade-btn ${GRADE_CLASSES[g]}" data-game="${game.id}" data-grade="${g}">
             <div class="grade-header">
-              <p class="grade-label">${g === 'K' ? 'Kinder' : 'Grade ' + g}</p>
+              <p class="grade-label">${g === 'K' ? 'Kindergarten' : 'Grade ' + g}</p>
             </div>
             <div class="grade-body">
               <p class="grade-topics">${game.topics[g].replace(/\n/g, '<br>')}</p>
